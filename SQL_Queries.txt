@@ -1,0 +1,28 @@
+*SQL Queries Using Joins[Inner Join] *
+
+ SELECT * FROM 'orders'as o
+ JOIN orderdetails ON orderdetails.orderNumber = o.orderNumber
+ WHERE o.orderNumber = 10103 
+
+
+ SELECT * FROM 'customers'
+ JOIN orders ON orders.customerNumber = customers.customerNumber
+ Where orders.customerNumber = 144; 
+ 
+
+ SELECT * FROM 'products' as p
+ JOIN orderdetails ON orderdetails.productCode = p.productCode
+ WHERE p.productCode = "S12_1666";
+
+
+* SQL Queries Using [Outer Join]
+  1. Left Join 
+ SELECT  `customers`.`customerName`,orders.orderNumber FROM customers
+ LEFT JOIN orders on customers.customerNumber = orders.customerNumber
+ ORDER BY customers.customerName;
+
+  2.Right Join 
+ SELECT orders.orderNumber,customers.contactFirstName, customers.contactLastName
+ FROM orders 
+ RIGHT JOIN customers ON
+ orders.customerNumber = customers.customerNumber ORDER BY orders.orderNumber;
